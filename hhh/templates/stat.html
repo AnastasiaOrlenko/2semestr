@@ -1,0 +1,24 @@
+﻿<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Статистика ответов</title>
+ </head>
+ <body>
+ <form action="http://127.0.0.1:5000/">
+  <table border="1">
+   <caption>Статистика ответов</caption>
+   <tr>
+    <th>1</th>
+    <th>2</th>
+   </tr>
+   <ul>
+   {% for item in answer %}
+   <tr><td>{{item}}</td></tr>
+   {% endfor %}
+  </table>
+  </ul>
+  <p><input type="submit"></p>
+  </form>
+ </body>
+</html>
