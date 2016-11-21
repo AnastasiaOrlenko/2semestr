@@ -1,0 +1,50 @@
+import urllib.request 
+import os
+import re
+import html
+
+
+def func():
+    for root, dirs, files in os.walk('C:\\Users\\student\\Desktop\\thai_pages'):
+        for text in files:
+            new = open(root + os.sep + text, 'r', encoding = 'utf-8')
+            file = new.read()
+            thai_words = re.compile('<td class=th><a href=\'/id/[0-9]+?\'>(.+?)</a>')
+            first = re.findall(thai_words,file)
+
+            new_words = [] 
+            regTag = re.compile('<.*?>', flags=re.U | re.DOTALL) 
+            regSpace = re.compile('\s{2,}', flags=re.U | re.DOTALL) 
+            for t in first: 
+                clean_t = regSpace.sub("", t) 
+                clean_t = regTag.sub("", clean_t) 
+                new_words.append(clean_t) 
+                for t in new_words: 
+                    print(t)
+            return file
+
+def func1(file):
+    eng_words = re.compile('<td class=pos>.*?</td><td>(?:&#34;)?(.+)(?:&#34;)?</td>')
+    second = re.findall(eng_words, file)
+
+    new_ewords = [] 
+    regTag1 = re.compile('<.*?>', flags=re.U | re.DOTALL) 
+    regSpace1 = re.compile('\s{2,}', flags=re.U | re.DOTALL) 
+    for i in second: 
+        clean_i = regSpace1.sub("", i) 
+        clean_i = regTag1.sub("", clean_i) 
+        new_ewords.append(clean_i) 
+        for i in new_ewords: 
+            print(i)
+    
+
+def main():
+    file = func()
+    func1(file)
+    
+if __name__ == '__main__':
+    main()
+    
+
+
+
