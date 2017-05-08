@@ -56,8 +56,8 @@ def lenghtofposts(new_posts):
     lenghtt = []
     regex = re.compile('[^а-яёА-ЯЁ0-9a-zA-Z]+', flags=re.U | re.DOTALL)
     new_posts = re.sub(regex, ' ', new_posts)
-    #words = new_posts.split(' ')
-    for word in new_posts:
+    words = new_posts.split(' ')
+'''    for word in new_posts:
         if new_posts[word] == '':
             mass = []
         else:
@@ -66,6 +66,7 @@ def lenghtofposts(new_posts):
             mass = []
         lenght = len(mass)
         lenghtt.append(lenght)
+'''
     #ниже просто проверка, после которой я поняла, что все сломалось(((
         file = open('lenght.txt', 'w', encoding='utf-8')
         file.write(str(lenghtt) + '\n')
