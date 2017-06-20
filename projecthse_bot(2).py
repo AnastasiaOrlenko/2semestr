@@ -4,17 +4,16 @@ import urllib.parse
 import re
 import html
 import flask
+import os
+TOKEN = os.environ["425797545:AAEsdrmSrF2nB4FUj_eO7VKr337xIJaEWwM"]
 
-WEBHOOK_URL_BASE = "https://{}:{}".format(conf.WEBHOOK_HOST, conf.WEBHOOK_PORT)
-WEBHOOK_URL_PATH = "/{}/".format(conf.TOKEN)
-
-bot = telebot.TeleBot(conf.TOKEN, threaded=False)  # бесплатный аккаунт pythonanywhere запрещает работу с несколькими тредами
+bot = telebot.TeleBot(TOKEN, threaded=False)  # бесплатный аккаунт pythonanywhere запрещает работу с несколькими тредами
 
 # удаляем предыдущие вебхуки, если они были
 bot.remove_webhook()
 
 # ставим новый вебхук = Слышь, если кто мне напишет, стукни сюда — url
-bot.set_webhook(url=WEBHOOK_URL_BASE+WEBHOOK_URL_PATH)
+bot.set_webhook(url='''здесь путь''')
 
 app = flask.Flask(__name__)
 
@@ -60,7 +59,7 @@ def index():
 
 
 # обрабатываем вызовы вебхука = функция, которая запускается, когда к нам постучался телеграм
-@app.route(WEBHOOK_URL_PATH, methods=['POST'])
+@app.route('/projecthse_bot', methods=['POST'])
 def webhook():
     if flask.request.headers.get('content-type') == 'application/json':
         json_string = flask.request.get_data().decode('utf-8')
