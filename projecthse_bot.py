@@ -30,8 +30,7 @@ def download_page (link):
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, 'Привет! Это бот устного корпуса НКРЯ.\n/lex слово - ищет СЛОВО в корпусе')
-#вместо этого предложения выше нужно вставить инструкцию какую-то
+    bot.send_message(message.chat.id, 'Здравствуйте! Это бот устного корпуса НКРЯ.\n/lex слово - ищет СЛОВО в корпусе')
 
 @bot.message_handler(commands=['lex']) #команда lex поиск слова в корпусе
 def send_len(message):
