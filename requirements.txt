@@ -1,0 +1,6 @@
+﻿Flask==0.12.2
+MarkupSafe==1.0
+pyparsing==2.2.0
+pyTelegramBotAPI==2.3.1
+requests==2.13.0
+requests-oauthlib==0.8.0
