@@ -9,7 +9,7 @@ import os
 #WEBHOOK_URL_BASE = "https://{}:{}".format(conf.WEBHOOK_HOST, conf.WEBHOOK_PORT)
 #WEBHOOK_URL_PATH = "/{}/".format(conf.TOKEN)
 TOKEN = os.environ["425797545:AAEsdrmSrF2nB4FUj_eO7VKr337xIJaEWwM"]
-bot = telebot.TeleBot(conf.TOKEN, threaded=False)  # бесплатный аккаунт pythonanywhere запрещает работу с несколькими тредами
+bot = telebot.TeleBot(TOKEN, threaded=False)  # бесплатный аккаунт pythonanywhere запрещает работу с несколькими тредами
 
 # удаляем предыдущие вебхуки, если они были
 bot.remove_webhook()
